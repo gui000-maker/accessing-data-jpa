@@ -1,31 +1,30 @@
+@baseUrl = http://localhost:8080
+
 ### Get all customers
-GET http://localhost:8080/customers
+GET {{baseUrl}}/customers
 Accept: application/json
 
 ### Create customer
-POST http://localhost:8080/customers
+POST {{baseUrl}}/customers
 Content-Type: application/json
 
 {
   "firstName": "John",
-  "lastName": "Doe",
-  "email": "john.doe@email.com"
+  "lastName": "Doe"
 }
 
 ### Get customer by id
-GET http://localhost:8080/customers/1
+GET {{baseUrl}}/customers/1
 Accept: application/json
 
 ### Update customer
-PUT http://localhost:8080/customers/1
+PUT {{baseUrl}}/customers/1
 Content-Type: application/json
 
 {
-  "id": 1,
   "firstName": "John",
-  "lastName": "Updated",
-  "email": "john.updated@email.com"
+  "lastName": "Updated"
 }
 
 ### Delete customer
-DELETE http://localhost:8080/customers/1
+DELETE {{baseUrl}}/customers/1
