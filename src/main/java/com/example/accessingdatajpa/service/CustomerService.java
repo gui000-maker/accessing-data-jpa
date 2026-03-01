@@ -2,7 +2,7 @@ package com.example.accessingdatajpa.service;
 
 import com.example.accessingdatajpa.dto.CustomerRequest;
 import com.example.accessingdatajpa.dto.CustomerResponse;
-import com.example.accessingdatajpa.model.Customer;
+import com.example.accessingdatajpa.entity.Customer;
 import com.example.accessingdatajpa.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.example.accessingdatajpa.model;
+package com.example.accessingdatajpa.entity;
 
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
