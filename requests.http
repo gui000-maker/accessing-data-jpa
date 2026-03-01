@@ -1,0 +1,31 @@
+### Get all customers
+GET http://localhost:8080/customers
+Accept: application/json
+
+### Create customer
+POST http://localhost:8080/customers/customers
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@email.com"
+}
+
+### Get customer by id
+GET http://localhost:8080/customers/1
+Accept: application/json
+
+### Update customer
+PUT http://localhost:8080/customers/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "firstName": "John",
+  "lastName": "Updated",
+  "email": "john.updated@email.com"
+}
+
+### Delete customer
+DELETE http://localhost:8080/customers/1}/customers/1
