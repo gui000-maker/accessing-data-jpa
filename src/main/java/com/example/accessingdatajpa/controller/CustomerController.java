@@ -1,7 +1,12 @@
 package com.example.accessingdatajpa.controller;
 
+import com.example.accessingdatajpa.dto.CustomerRequest;
+import com.example.accessingdatajpa.dto.CustomerResponse;
 import com.example.accessingdatajpa.model.Customer;
 import com.example.accessingdatajpa.service.CustomerService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,8 +19,14 @@ public class CustomerController {
     }
 
     @PostMapping
-    public Customer createCustomer(Customer customer) {
-        return customerService.create(customer);
+    public ResponseEntity<CustomerResponse> createCustomer(
+            @Valid @RequestBody CustomerRequest request) {
+
+        CustomerResponse created = customerService.create(request);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(created);
     }
 
     @GetMapping

@@ -1,5 +1,7 @@
 package com.example.accessingdatajpa.service;
 
+import com.example.accessingdatajpa.dto.CustomerRequest;
+import com.example.accessingdatajpa.dto.CustomerResponse;
 import com.example.accessingdatajpa.model.Customer;
 import com.example.accessingdatajpa.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
@@ -12,8 +14,21 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    public Customer create(Customer customer) {
-        return customerRepository.save(customer);
+    public CustomerResponse create(CustomerRequest request) {
+
+        Customer customer = new Customer(
+                request.firstName(),
+                request.lastName()
+        );
+
+        Customer saved = customerRepository.save(customer);
+
+        return new CustomerResponse(
+                saved.getId(),
+                saved.getFirstName(),
+                saved.getLastName(),
+                saved.getCreatedAt()
+        );
     }
 
     public Iterable<Customer> getAll() {

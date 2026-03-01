@@ -1,9 +1,9 @@
 package com.example.accessingdatajpa.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.LocalDateTime;
 
 @Entity
 public class Customer {
@@ -13,6 +13,10 @@ public class Customer {
     private Long id;
     private String firstName;
     private String lastName;
+
+    @CreatedDate
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
 
     protected Customer() {}
 
@@ -38,6 +42,10 @@ public class Customer {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
     public void setFirstName(String firstName) {
