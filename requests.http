@@ -3,7 +3,7 @@ GET http://localhost:8080/customers
 Accept: application/json
 
 ### Create customer
-POST http://localhost:8080/customers/customers
+POST http://localhost:8080/customers
 Content-Type: application/json
 
 {
@@ -28,4 +28,4 @@ Content-Type: application/json
 }
 
 ### Delete customer
-DELETE http://localhost:8080/customers/1}/customers/1
+DELETE http://localhost:8080/customers/1
