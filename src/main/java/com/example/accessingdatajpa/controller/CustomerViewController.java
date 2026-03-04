@@ -20,8 +20,8 @@ public class CustomerViewController {
     }
 
     @GetMapping
-    public String ListCustomers (Iterable<Customer> iterable, Model model) {
-        iterable = customerService.getAll();
+    public String ListCustomers (Model model) {
+        Iterable<Customer> iterable = customerService.getAll();
         model.addAttribute(iterable);
         return "/customer/list";
     }
