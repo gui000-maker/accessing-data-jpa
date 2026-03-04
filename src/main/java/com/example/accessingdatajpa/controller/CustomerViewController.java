@@ -47,7 +47,7 @@ public class CustomerViewController {
         return "redirect:/customer";
     }
 
-    @GetMapping("/contacts/search")
+    @GetMapping("/search")
     public String searchById(@RequestParam Long id, Model model) {
 
         Customer customer = customerService.getById(id);
