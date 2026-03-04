@@ -22,7 +22,7 @@ public class CustomerViewController {
     @GetMapping
     public String ListCustomers (Model model) {
         Iterable<Customer> iterable = customerService.getAll();
-        model.addAttribute(iterable);
+        model.addAttribute("iterable", iterable);
         return "/customer/list";
     }
 
