@@ -49,11 +49,8 @@ public class CustomerViewController {
 
     @GetMapping("/search")
     public String searchById(@RequestParam Long id, Model model) {
-
         Customer customer = customerService.getById(id);
-
         model.addAttribute("customer", customer);
-
         return "customer/detail";
     }
 }

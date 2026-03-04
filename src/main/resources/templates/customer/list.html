@@ -2,37 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Create Customer</title>
+    <title>Customer List</title>
 </head>
 <body>
 
-<h1>Create Customer</h1>
+<h1>Customers</h1>
 
-<form th:action="@{/customer}"
-      th:object="${customer}"
-      method="post">
+<a th:href="@{/customer/new}">Create New Customer</a>
 
-    <div>
-        <label>Name:</label>
-        <input type="text" th:field="*{name}" />
-    </div>
-
-    <div>
-        <label>Email:</label>
-        <input type="text" th:field="*{email}" />
-    </div>
-
-    <!-- Validation Errors -->
-    <div th:if="${#fields.hasErrors('*')}">
-        <p th:each="err : ${#fields.errors('*')}"
-           th:text="${err}">
-        </p>
-    </div>
-
-    <button type="submit">Save</button>
+<h2>Search by ID</h2>
+<form th:action="@{/customer/search}" method="get">
+    <input type="number" name="id" placeholder="Enter ID" required>
+    <button type="submit">Search</button>
 </form>
 
-<a th:href="@{/customer}">Cancel</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer : ${iterable}">
+        <td th:text="${customer.id}">1</td>
+        <td th:text="${customer.name}">Name</td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
