@@ -21,12 +21,14 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>LastName</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="customer : ${iterable}">
         <td th:text="${customer.id}">1</td>
-        <td th:text="${customer.name}">Name</td>
+        <td th:text="${customer.firstname}">firstName</td>
+        <td th:text="${customer.lastName}">lastName</td>
     </tr>
     </tbody>
 </table>
